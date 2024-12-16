@@ -17,9 +17,38 @@ struct FavoritesView: View {
             
             Text("Hobbies")
                 .font(.title2)
-//            HStack {
-//                ForEach(inform, id: <#T##KeyPath<Data.Element, ID>#>, content: <#T##(Data.Element) -> Content#>)
-//            }
+            HStack {
+                ForEach(information.hobbies, id: \.self) { hobby in
+                    Image(systemName: hobby)
+                        .resizable()
+                        .frame(maxWidth: 80, maxHeight: 60)
+                }
+                .padding()
+            }
+            .padding()
+            
+            Text("Foods")
+                .font(.title2)
+            
+            HStack(spacing: 60) {
+                ForEach(information.foods, id: \.self) { food in
+                    Text(food)
+                        .font(.system(size: 48))
+                }
+            }
+            .padding()
+            
+            Text("Favorite Colors")
+                .font(.title2)
+            
+            HStack(spacing: 30) {
+                ForEach(information.colors, id: \.self) { color in
+                    color
+                        .frame(width: 70, height: 70)
+                        .cornerRadius(10)
+                }
+            }
+            .padding()
         }
     }
 }
